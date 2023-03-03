@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/03 15:30:30 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/03 20:47:04 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_info
 {
 	int		argc;
 	char	**argv;
+	char	*map_file;
 	int		map_fd;
 	char	**map;
 	int		map_row;
@@ -38,7 +39,6 @@ typedef struct s_info
 }			t_info;
 
 /* main */
-void	error(void);
 
 /* init */
 void	init_info(t_info *info, int argc, char **argv);
@@ -47,5 +47,9 @@ void	init_info(t_info *info, int argc, char **argv);
 void	parse_map(t_info *info);
 void	get_map_size(t_info *info);
 void	make_map(t_info *info);
+
+/* error */
+void	error1(void);
+void	error2(void);
 
 #endif

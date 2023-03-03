@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_init.c                                     :+:      :+:    :+:   */
+/*   so_long_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 12:53:34 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/03 20:47:52 by tnam             ###   ########.fr       */
+/*   Created: 2023/03/03 20:34:04 by tnam              #+#    #+#             */
+/*   Updated: 2023/03/03 20:37:03 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	init_info(t_info *info, int argc, char **argv)
+void	error1(void)
 {
-	info->argc = argc;
-	info->argv = argv;
-	info->map_file = argv[1];
-	info->map_fd = open(info->map_file, O_RDONLY);
-	if (info->map_fd == ERROR)
-		error1();
-	info->map = NULL;
-	info->map_row = 0;
-	info->map_col = 0;
-	info->line = NULL;
+	perror(NULL);
+	exit(errno);
+}
+
+void	error2(void)
+{
+	write(STDERR_FILENO, "Error\n", 6);
+	write(STDERR_FILENO, "Invalid map : not rectangle", 27);
+	exit(EXIT_FAILURE);
 }

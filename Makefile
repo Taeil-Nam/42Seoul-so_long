@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 16:17:47 by tnam              #+#    #+#              #
-#    Updated: 2023/03/03 16:10:57 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/03 20:42:34 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ INCLUDES		=	includes/
 SRCS_M			=	srcs_m/so_long_main.c				\
 					srcs_m/so_long_init.c				\
 					srcs_m/so_long_parse_map.c			\
+					srcs_m/so_long_error.c				\
 					gnl/get_next_line.c					\
 					gnl/get_next_line_utils.c			\
 									
