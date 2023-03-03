@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:53:34 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/03 20:47:52 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/03 23:02:27 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void	init_info(t_info *info, int argc, char **argv)
 	info->map_file = argv[1];
 	info->map_fd = open(info->map_file, O_RDONLY);
 	if (info->map_fd == ERROR)
-		error1();
+		error_with_errno();
 	info->map = NULL;
+	info->map_size = 0;
 	info->map_row = 0;
 	info->map_col = 0;
 	info->line = NULL;

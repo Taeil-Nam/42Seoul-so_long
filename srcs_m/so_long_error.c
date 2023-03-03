@@ -6,21 +6,58 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:34:04 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/03 20:37:03 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/03 23:30:49 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	error1(void)
+void	error_with_errno(void)
 {
 	perror(NULL);
 	exit(errno);
 }
 
-void	error2(void)
+void	error_in_map1(char *type)
 {
-	write(STDERR_FILENO, "Error\n", 6);
-	write(STDERR_FILENO, "Invalid map : not rectangle", 27);
-	exit(EXIT_FAILURE);
+	if (ft_strncmp(type, "RECTANGLE", 9) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "Invalid map : Not rectangle\n", 28);
+		exit(EXIT_FAILURE);
+	}
+	if (ft_strncmp(type, "WALL", 4) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "Invalid map : Not surrounding walls\n", 36);
+		exit(EXIT_FAILURE);
+	}
+	if (ft_strncmp(type, "COMPONENT", 9) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "Invalid map : Invalid component is in file\n", 43);
+		exit(EXIT_FAILURE);
+	}
+}
+
+void	error_in_map2(char *type)
+{
+	if (ft_strncmp(type, "P_COUNT", 7) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "Invalid map : Invalid player count\n", 35);
+		exit(EXIT_FAILURE);
+	}
+	if (ft_strncmp(type, "E_COUNT", 7) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "Invalid map : Invalid escape count\n", 35);
+		exit(EXIT_FAILURE);
+	}
+	if (ft_strncmp(type, "C_COUNT", 7) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "Invalid map : Invalid collectable count\n", 40);
+		exit(EXIT_FAILURE);
+	}
 }
