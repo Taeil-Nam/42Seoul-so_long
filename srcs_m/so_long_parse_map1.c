@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:27:33 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/03 23:25:23 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/04 17:16:58 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	parse_map(t_info *info)
 {
 	get_map_size(info);
 	make_map(info);
-	check_is_valid_map1(info);
-	check_is_valid_map2(info);
+	check_is_valid_map(info);
+	check_can_escape(info);
 }
 
 void	get_map_size(t_info *info)
@@ -70,7 +70,7 @@ void	make_map(t_info *info)
 	}
 }
 
-void	check_is_valid_map1(t_info *info)
+void	check_is_valid_map(t_info *info)
 {
 	int			i;
 	int			p_count;
@@ -99,9 +99,21 @@ void	check_is_valid_map1(t_info *info)
 	check_is_valid_count(p_count, e_count, c_count);
 }
 
-void	check_is_valid_map2(t_info *info)
+void	check_can_escape(t_info *info)
 {
-	info->argc = 0; // dummy code.
-	// To do:
-	// - 플레이어 시작 지점부터 탈출 지점까지 갈 수 있는 길이 있는지 확인 하는 함수 구현.
+	int		player_pos;
+	bool	found_e;
+	bool	*visited;
+
+	player_pos = 0;
+	found_e = 0;
+	visited = (bool *)ft_calloc(info->map_size, sizeof(int));
+	if (visited == NULL)
+		exit(EXIT_FAILURE);
+	while (info->map[player_pos] != PLAYER)
+		player_pos++;
+	find_escape_path(info, player_pos, &found_e, visited);
+	free(visited);
+	if (found_e == 0)
+		error_in_map2("NO_E_PATH");
 }

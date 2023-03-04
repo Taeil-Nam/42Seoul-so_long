@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:53:34 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/03 23:00:44 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/04 15:52:20 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,7 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		return (EXIT_FAILURE);
 	init_info(&info, argc, argv);
-
-	// To do 1: 맵 파싱하기.
 	parse_map(&info);
-
-	// To do 2: 게임 로직 만들기.
-	//printf("%s\n", info.map);
 
 	/* free zone */
 	free(info.map);

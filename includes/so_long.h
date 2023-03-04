@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/03 23:23:05 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/04 17:15:18 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,15 @@ void	init_info(t_info *info, int argc, char **argv);
 void	parse_map(t_info *info);
 void	get_map_size(t_info *info);
 void	make_map(t_info *info);
-void	check_is_valid_map1(t_info *info);
-void	check_is_valid_map2(t_info *info);
+void	check_is_valid_map(t_info *info);
+void	check_can_escape(t_info *info);
 
 /* parse map2*/
 void	check_is_surrounding_walls(t_info *info, int i);
 void	check_is_valid_count(int p_count, int e_count, int c_count);
+
+/* parse map3*/
+void	find_escape_path(t_info *info, int pos, bool *found_e, bool *visited);
 
 /* error */
 void	error_with_errno(void);
