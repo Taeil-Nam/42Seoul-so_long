@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/04 17:15:18 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/06 20:27:49 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ void	check_is_valid_count(int p_count, int e_count, int c_count);
 
 /* parse map3*/
 void	find_escape_path(t_info *info, int pos, bool *found_e, bool *visited);
+void	find_path_up(t_info *info, int pos, bool *found_e, bool *visited);
+void	find_path_right(t_info *info, int pos, bool *found_e, bool *visited);
+void	find_path_down(t_info *info, int pos, bool *found_e, bool *visited);
+void	find_path_left(t_info *info, int pos, bool *found_e, bool *visited);
 
 /* error */
 void	error_with_errno(void);
