@@ -6,11 +6,11 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:34:04 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/04 16:46:02 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/07 21:30:24 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	error_with_errno(void)
 {
@@ -20,6 +20,12 @@ void	error_with_errno(void)
 
 void	error_in_map1(char *type)
 {
+	if (ft_strncmp(type, "FILENAME", 8) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "The file has an invalid extension.\n", 35);
+		exit(EXIT_FAILURE);
+	}
 	if (ft_strncmp(type, "RECTANGLE", 9) == 0)
 	{
 		write(STDERR_FILENO, "Error\n", 6);
@@ -64,6 +70,16 @@ void	error_in_map2(char *type)
 	{
 		write(STDERR_FILENO, "Error\n", 6);
 		write(STDERR_FILENO, "Invalid map : There is no escape path\n", 38);
+		exit(EXIT_FAILURE);
+	}
+}
+
+void	error_in_map3(char *type)
+{
+	if (ft_strncmp(type, "NO_C_PATH", 9) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "Invalid map : There is no collectable path\n", 43);
 		exit(EXIT_FAILURE);
 	}
 }

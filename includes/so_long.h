@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/06 20:27:49 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/07 21:26:04 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ typedef struct s_info
 	int		map_size;
 	int		map_row;
 	int		map_col;
+	int		p_count;
+	int		e_count;
+	int		c_count;
 	char	*line;
 }			t_info;
 
@@ -52,28 +55,38 @@ typedef struct s_info
 
 /* init */
 void	init_info(t_info *info, int argc, char **argv);
+void	check_map_file(t_info *info);
 
-/* parse map1*/
+/* parse map*/
 void	parse_map(t_info *info);
 void	get_map_size(t_info *info);
 void	make_map(t_info *info);
 void	check_is_valid_map(t_info *info);
-void	check_can_escape(t_info *info);
 
-/* parse map2*/
+/* parse map utils*/
 void	check_is_surrounding_walls(t_info *info, int i);
-void	check_is_valid_count(int p_count, int e_count, int c_count);
+void	check_is_valid_count(t_info *info);
+void	check_can_escape(t_info *info);
+void	check_can_collectable(t_info *info);
 
-/* parse map3*/
-void	find_escape_path(t_info *info, int pos, bool *found_e, bool *visited);
-void	find_path_up(t_info *info, int pos, bool *found_e, bool *visited);
-void	find_path_right(t_info *info, int pos, bool *found_e, bool *visited);
-void	find_path_down(t_info *info, int pos, bool *found_e, bool *visited);
-void	find_path_left(t_info *info, int pos, bool *found_e, bool *visited);
+/* find escape path*/
+void	find_e_path(t_info *info, int pos, bool *found_e, bool *visited);
+void	find_e_path_up(t_info *info, int pos, bool *found_e, bool *visited);
+void	find_e_path_right(t_info *info, int pos, bool *found_e, bool *visited);
+void	find_e_path_down(t_info *info, int pos, bool *found_e, bool *visited);
+void	find_e_path_left(t_info *info, int pos, bool *found_e, bool *visited);
+
+/* find collectable path*/
+void	find_c_path(t_info *info, int pos, int *c_count, bool *visited);
+void	find_c_path_up(t_info *info, int pos, int *c_count, bool *visited);
+void	find_c_path_right(t_info *info, int pos, int *c_count, bool *visited);
+void	find_c_path_down(t_info *info, int pos, int *c_count, bool *visited);
+void	find_c_path_left(t_info *info, int pos, int *c_count, bool *visited);
 
 /* error */
 void	error_with_errno(void);
 void	error_in_map1(char *type);
 void	error_in_map2(char *type);
+void	error_in_map3(char *type);
 
 #endif

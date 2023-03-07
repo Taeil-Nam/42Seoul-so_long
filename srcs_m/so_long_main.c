@@ -6,11 +6,11 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:53:34 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/04 15:52:20 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/07 19:00:16 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	leaks()
 {
@@ -24,10 +24,11 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		return (EXIT_FAILURE);
 	init_info(&info, argc, argv);
+	check_map_file(&info);
 	parse_map(&info);
 
 	/* free zone */
 	free(info.map);
-	atexit(leaks);
+	//atexit(leaks);
 	return (0);
 }
