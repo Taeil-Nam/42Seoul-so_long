@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/08 16:10:46 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/08 21:53:03 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,17 @@ enum e_map
 	WALL = '1',
 	PLAYER = 'P',
 	ESCAPE = 'E',
-	COLLECTABLE = 'C'
+	COLLECTABLE = 'C',
+};
+
+enum e_keys
+{
+	ESC = 53,
+};
+
+enum e_mlx
+{
+	ON_DESTROY = 17,
 };
 
 typedef struct s_info
@@ -55,6 +65,10 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*mlx_win;
+	int		pixel;
+	void	*wall;
+	void	*free_space;
+	int		current_c_count;
 }			t_game;
 
 /* main */
@@ -92,6 +106,14 @@ void	find_c_path_left(t_info *info, int pos, int *c_count, bool *visited);
 /* game logic */
 void	game_logic(t_info *info);
 void	init_game(t_game *game);
+
+/* render map */
+void	render_map(t_info *info, t_game *game);
+void	render_tile(t_info *info, t_game *game);
+
+/* check key input */
+int		check_key_input(int key, t_game *game);
+int		check_close_game(void);
 
 /* error */
 void	error_with_errno(void);

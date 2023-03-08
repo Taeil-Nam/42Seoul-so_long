@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:34:04 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/08 16:11:57 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/08 20:45:35 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,12 @@ void	error_mlx(char *type)
 	{
 		write(STDERR_FILENO, "Error\n", 6);
 		write(STDERR_FILENO, "mlx_new_window() failed.\n", 25);
+		exit(EXIT_FAILURE);
+	}
+	if (ft_strncmp(type, "MLX_XPM_LOAD", 13) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "mlx_xpm_file_to_image() failed.\n", 32);
 		exit(EXIT_FAILURE);
 	}
 }

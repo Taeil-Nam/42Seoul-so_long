@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:59:13 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/08 16:17:40 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/08 21:52:21 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	game_logic(t_info *info)
 	t_game	game;
 
 	init_game(&game);
+	render_map(info, &game);
+	mlx_key_hook(game.mlx_win, check_key_input, &game);
+	mlx_hook(game.mlx_win, ON_DESTROY, 0, check_close_game, &game);
 	mlx_loop(game.mlx);
-	info->argc = 0; // dummy
 }
 
 void	init_game(t_game *game)
@@ -26,7 +28,17 @@ void	init_game(t_game *game)
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
 		error_mlx("MLX_INIT");
-	game->mlx_win = mlx_new_window(game->mlx, 1600, 900, "so_long");
+	game->mlx_win = mlx_new_window(game->mlx, 1152, 896, "so_long");
 	if (game->mlx_win == NULL)
 		error_mlx("MLX_WIN");
+	game->pixel = 64;
+	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm",
+			&(game->pixel), &(game->pixel));
+	if (game->wall == NULL)
+		error_mlx("MLX_XPM_LOAD");
+	game->free_space = mlx_xpm_file_to_image(game->mlx,
+			"textures/free_space.xpm", &(game->pixel), &(game->pixel));
+	if (game->free_space == NULL)
+		error_mlx("MLX_XPM_LOAD");
+	game->current_c_count = 0;
 }

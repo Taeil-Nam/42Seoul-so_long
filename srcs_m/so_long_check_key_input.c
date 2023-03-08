@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_main.c                                     :+:      :+:    :+:   */
+/*   so_long_check_key_input.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 12:53:34 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/08 21:36:08 by tnam             ###   ########.fr       */
+/*   Created: 2023/03/08 21:13:26 by tnam              #+#    #+#             */
+/*   Updated: 2023/03/08 21:27:31 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	leaks()
+int	check_key_input(int key, t_game *game)
 {
-	system("leaks so_long");
+	if (key == ESC)
+	{
+		mlx_destroy_window(game->mlx, game->mlx_win);
+		exit(EXIT_SUCCESS);
+	}
+	return (0);
 }
 
-int	main(int argc, char *argv[])
+int	check_close_game(void)
 {
-	t_info	info;
-
-	if (argc != 2)
-		return (EXIT_FAILURE);
-		
-	/* parse map */
-	init_info(&info, argc, argv);
-	check_map_file(&info);
-	parse_map(&info);
-
-	/* game logic */
-	game_logic(&info);
-
-	/* free zone */
-	free(info.map);
-	atexit(leaks);
-	return (0);
+	exit(EXIT_SUCCESS);
 }
