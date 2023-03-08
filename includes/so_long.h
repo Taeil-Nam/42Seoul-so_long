@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/07 21:26:04 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/08 16:10:46 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ typedef struct s_info
 	char	*line;
 }			t_info;
 
+typedef struct s_game
+{
+	void	*mlx;
+	void	*mlx_win;
+}			t_game;
+
 /* main */
 
 /* init */
@@ -83,10 +89,15 @@ void	find_c_path_right(t_info *info, int pos, int *c_count, bool *visited);
 void	find_c_path_down(t_info *info, int pos, int *c_count, bool *visited);
 void	find_c_path_left(t_info *info, int pos, int *c_count, bool *visited);
 
+/* game logic */
+void	game_logic(t_info *info);
+void	init_game(t_game *game);
+
 /* error */
 void	error_with_errno(void);
 void	error_in_map1(char *type);
 void	error_in_map2(char *type);
 void	error_in_map3(char *type);
+void	error_mlx(char *type);
 
 #endif

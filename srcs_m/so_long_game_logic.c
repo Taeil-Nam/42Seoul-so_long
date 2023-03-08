@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_main.c                                     :+:      :+:    :+:   */
+/*   so_long_game_logic.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/03 12:53:34 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/08 16:16:26 by tnam             ###   ########.fr       */
+/*   Created: 2023/03/08 15:59:13 by tnam              #+#    #+#             */
+/*   Updated: 2023/03/08 16:17:40 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	leaks()
+void	game_logic(t_info *info)
 {
-	system("leaks so_long");
+	t_game	game;
+
+	init_game(&game);
+	mlx_loop(game.mlx);
+	info->argc = 0; // dummy
 }
 
-int	main(int argc, char *argv[])
+void	init_game(t_game *game)
 {
-	t_info	info;
-
-	if (argc != 2)
-		return (EXIT_FAILURE);
-
-	/* parse map */
-	init_info(&info, argc, argv);
-	check_map_file(&info);
-	parse_map(&info);
-
-	/* game logic */
-	game_logic(&info);
-
-	/* free zone */
-	free(info.map);
-	//atexit(leaks);
-	return (0);
+	game->mlx = mlx_init();
+	if (game->mlx == NULL)
+		error_mlx("MLX_INIT");
+	game->mlx_win = mlx_new_window(game->mlx, 1600, 900, "so_long");
+	if (game->mlx_win == NULL)
+		error_mlx("MLX_WIN");
 }

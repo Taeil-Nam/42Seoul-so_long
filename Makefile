@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 16:17:47 by tnam              #+#    #+#              #
-#    Updated: 2023/03/07 21:02:18 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/08 15:58:50 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT_C			=	-L$(LIBFT_DIR) -lft
 
 MLX_DIR			=	mlx_opengl/
 MLX				=	libmlx.a
-MLX_C			=	-L$(MLX_DIR) -lmlx
+MLX_C			=	-L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 INCLUDES		=	includes/
 
@@ -32,6 +32,7 @@ SRCS_M			=	srcs_m/so_long_main.c					\
 					srcs_m/so_long_parse_map_utils.c		\
 					srcs_m/so_long_find_escape_path.c		\
 					srcs_m/so_long_find_collectable_path.c	\
+					srcs_m/so_long_game_logic.c				\
 					srcs_m/so_long_error.c					\
 					gnl/get_next_line.c						\
 					gnl/get_next_line_utils.c				\
