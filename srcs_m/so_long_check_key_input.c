@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 21:13:26 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 20:11:04 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 20:39:53 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	key_w(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->mlx_win,
 			game->player, game->player_col * 64, game->player_row * 64);
 	}
+	game->move_count++;
+	ft_printf("Movement count = %d\n", game->move_count);
 }
 
 void	key_a(t_game *game)
@@ -84,6 +86,8 @@ void	key_a(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->mlx_win,
 			game->player, game->player_col * 64, game->player_row * 64);
 	}
+	game->move_count++;
+	ft_printf("Movement count = %d\n", game->move_count);
 }
 
 void	key_s(t_game *game)
@@ -112,6 +116,8 @@ void	key_s(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->mlx_win,
 			game->player, game->player_col * 64, game->player_row * 64);
 	}
+	game->move_count++;
+	ft_printf("Movement count = %d\n", game->move_count);
 }
 
 void	key_d(t_game *game)
@@ -140,4 +146,6 @@ void	key_d(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->mlx_win,
 			game->player, game->player_col * 64, game->player_row * 64);
 	}
+	game->move_count++;
+	ft_printf("Movement count = %d\n", game->move_count);
 }
