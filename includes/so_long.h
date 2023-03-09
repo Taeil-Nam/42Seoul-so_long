@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 11:43:01 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 18:10:11 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ enum e_map
 enum e_keys
 {
 	ESC = 53,
+	W = 13,
+	A = 0,
+	S = 1,
+	D = 2,
 };
 
 enum e_mlx
@@ -71,7 +75,14 @@ typedef struct s_game
 	void	*player;
 	void	*escape;
 	void	*collect;
-	int		current_c_count;
+	int		collected_count;
+	int		move_count;
+	char	*map;
+	int		map_col;
+	int		player_pos;
+	int		player_row;
+	int		player_col;
+	int		escape_pos;
 }			t_game;
 
 /* main */
@@ -108,8 +119,9 @@ void	find_c_path_left(t_info *info, int pos, int *c_count, bool *visited);
 
 /* game logic */
 void	game_logic(t_info *info);
-void	init_game1(t_game *game);
+void	init_game1(t_game *game, t_info *info);
 void	init_game2(t_game *game);
+int		close_game(void);
 
 /* render map */
 void	render_map(t_info *info, t_game *game);
@@ -120,7 +132,10 @@ void	render_collect(t_info *info, t_game *game);
 
 /* check key input */
 int		check_key_input(int key, t_game *game);
-int		check_close_game(void);
+void	key_w(t_game *game);
+void	key_a(t_game *game);
+void	key_s(t_game *game);
+void	key_d(t_game *game);
 
 /* error */
 void	error_with_errno(void);

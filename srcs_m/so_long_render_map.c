@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 21:13:04 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 11:43:57 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 16:24:21 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,13 @@ void	render_player(t_info *info, t_game *game)
 	while (info->map[i] != '\0')
 	{
 		if (info->map[i] == PLAYER)
+		{
 			mlx_put_image_to_window(game->mlx, game->mlx_win,
 				game->player, col * 64, row * 64);
+			game->player_pos = i;
+			game->player_col = col;
+			game->player_row = row;
+		}
 		i++;
 		col++;
 		if (col % 19 == 0)
@@ -83,8 +88,11 @@ void	render_escape(t_info *info, t_game *game)
 	while (info->map[i] != '\0')
 	{
 		if (info->map[i] == ESCAPE)
+		{
 			mlx_put_image_to_window(game->mlx, game->mlx_win,
 				game->escape, col * 64, row * 64);
+			game->escape_pos = i;
+		}
 		i++;
 		col++;
 		if (col % 19 == 0)
