@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 20:35:00 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 21:04:54 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ typedef struct s_game
 	void	*player;
 	void	*escape;
 	void	*collect;
+	int		collect_goal_count;
 	int		collected_count;
 	int		move_count;
 	char	*map;
@@ -82,7 +83,6 @@ typedef struct s_game
 	int		player_pos;
 	int		player_row;
 	int		player_col;
-	int		escape_pos;
 }			t_game;
 
 /* main */
@@ -121,7 +121,7 @@ void	find_c_path_left(t_info *info, int pos, int *c_count, bool *visited);
 void	game_logic(t_info *info);
 void	init_game1(t_game *game, t_info *info);
 void	init_game2(t_game *game);
-int		close_game(void);
+int		close_game(t_game *game);
 
 /* render map */
 void	render_map(t_info *info, t_game *game);
@@ -136,6 +136,13 @@ void	key_w(t_game *game);
 void	key_a(t_game *game);
 void	key_s(t_game *game);
 void	key_d(t_game *game);
+
+/* check key input utils */
+void	w_collect(t_game *game);
+void	a_collect(t_game *game);
+void	s_collect(t_game *game);
+void	d_collect(t_game *game);
+void	check_can_finish_game(t_game *game);
 
 /* error */
 void	error_with_errno(void);

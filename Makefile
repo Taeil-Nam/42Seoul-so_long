@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 16:17:47 by tnam              #+#    #+#              #
-#    Updated: 2023/03/09 20:35:41 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/09 20:43:05 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS_M			=	srcs_m/so_long_main.c					\
 					srcs_m/so_long_game_logic.c				\
 					srcs_m/so_long_render_map.c				\
 					srcs_m/so_long_check_key_input.c		\
+					srcs_m/so_long_check_key_input_utils.c	\
 					srcs_m/so_long_error.c					\
 					gnl/get_next_line.c						\
 					gnl/get_next_line_utils.c				\

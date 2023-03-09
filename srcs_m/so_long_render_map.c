@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 21:13:04 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 16:24:21 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 20:57:08 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void	render_escape(t_info *info, t_game *game)
 		{
 			mlx_put_image_to_window(game->mlx, game->mlx_win,
 				game->escape, col * 64, row * 64);
-			game->escape_pos = i;
 		}
 		i++;
 		col++;
