@@ -6,16 +6,16 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:05:32 by tnam              #+#    #+#             */
-/*   Updated: 2023/01/30 16:09:40 by tnam             ###   ########.fr       */
+/*   Updated: 2022/11/28 15:25:21 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_str_to_null(char const *str, char c, size_t str_len)
+char	*ft_str_to_null(char const *str, char c, int str_len)
 {
-	size_t		i;
-	char		*str_to_null;
+	int		i;
+	char	*str_to_null;
 
 	str_to_null = ft_strdup(str);
 	if (str_to_null == 0)
@@ -30,10 +30,10 @@ static char	*ft_str_to_null(char const *str, char c, size_t str_len)
 	return (str_to_null);
 }
 
-static size_t	ft_sub_str_count(char *str_to_null, size_t str_len)
+int	ft_sub_str_count(char *str_to_null, int str_len)
 {
-	size_t	sub_str_count;
-	size_t	i;
+	int	sub_str_count;
+	int	i;
 
 	sub_str_count = 0;
 	i = 0;
@@ -46,11 +46,11 @@ static size_t	ft_sub_str_count(char *str_to_null, size_t str_len)
 	return (sub_str_count);
 }
 
-static char	**ft_split_str(char *str_to_null, size_t str_len, char **result)
+char	**ft_split_str(char *str_to_null, int str_len, char **result)
 {
-	size_t		i;
-	size_t		sub_str_count;
-	char		*sub_str;
+	int		i;
+	int		sub_str_count;
+	char	*sub_str;
 
 	i = 0;
 	sub_str_count = 0;
@@ -77,10 +77,10 @@ static char	**ft_split_str(char *str_to_null, size_t str_len, char **result)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t		str_len;
-	size_t		sub_str_count;
-	char		*str_to_null;
-	char		**result;
+	int		str_len;
+	int		sub_str_count;
+	char	*str_to_null;
+	char	**result;
 
 	str_len = ft_strlen(s);
 	str_to_null = ft_str_to_null(s, c, str_len);

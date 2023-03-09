@@ -6,13 +6,13 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 18:10:11 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 20:35:00 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
 # include "../gnl/get_next_line.h"
 # include "../mlx_opengl/mlx.h"
 # include <stdio.h>

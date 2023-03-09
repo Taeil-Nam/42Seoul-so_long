@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 16:17:47 by tnam              #+#    #+#              #
-#    Updated: 2023/03/09 11:40:21 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/09 20:35:41 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC				=	cc
 CFLAG			=	-Wall -Wextra -Werror
 RM				=	rm -f
 
-LIBFT_DIR		=	libft/
-LIBFT			=	libft.a
-LIBFT_C			=	-L$(LIBFT_DIR) -lft
+LIBFTPRINTF_DIR		=	ft_printf/
+LIBFTPRINTF			=	libftprintf.a
+LIBFTPRINTF_C		=	-L$(LIBFTPRINTF_DIR) -lftprintf
 
 MLX_DIR			=	mlx_opengl/
 MLX				=	libmlx.a
@@ -57,20 +57,20 @@ all: $(NAME)
 bonus: $(NAME)
 
 $(NAME): $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR) all
+	$(MAKE) -C $(LIBFTPRINTF_DIR) all
 	$(MAKE) -C $(MLX_DIR) all
-	$(CC) $(CFLAG) -I$(INCLUDES) $(OBJS) $(LIBFT_C) $(MLX_C) -o $(NAME)
+	$(CC) $(CFLAG) -I$(INCLUDES) $(OBJS) $(LIBFTPRINTF_C) $(MLX_C) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAG) -I$(INCLUDES) -c $< -o $@
 
 clean :
-	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(LIBFTPRINTF_DIR) clean
 	$(MAKE) -C $(MLX_DIR) clean
 	$(RM) $(OBJS_M) $(OBJS_B)
 
 fclean : clean
-	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(LIBFTPRINTF_DIR) fclean
 	$(MAKE) -C $(MLX_DIR) fclean
 	$(RM) $(NAME)
 

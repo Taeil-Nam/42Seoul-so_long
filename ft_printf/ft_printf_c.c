@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_printf_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 15:18:24 by tnam              #+#    #+#             */
-/*   Updated: 2023/01/30 13:41:37 by tnam             ###   ########.fr       */
+/*   Created: 2022/11/28 16:15:28 by tnam              #+#    #+#             */
+/*   Updated: 2022/12/06 15:50:39 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_printf_c(va_list vargs_ptr)
 {
-	size_t	i;
-
-	if (dst == 0 && src == 0)
-		return (0);
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		i++;
-	}
-	return (dst);
+	ft_putchar_fd((char)va_arg(vargs_ptr, int), 1);
+	return (1);
 }

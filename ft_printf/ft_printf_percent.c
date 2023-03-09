@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_printf_percent.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 19:58:45 by tnam              #+#    #+#             */
-/*   Updated: 2023/01/30 15:31:25 by tnam             ###   ########.fr       */
+/*   Created: 2022/11/28 20:10:31 by tnam              #+#    #+#             */
+/*   Updated: 2022/12/07 17:50:22 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_printf_percent(void)
 {
-	int	i;
-
-	if ((char)c == '\0')
-		return ((char *)(&s[ft_strlen(s)]));
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == (char)c)
-			return ((char *)(&s[i]));
-		i++;
-	}
-	return (0);
+	write(1, "%", 1);
+	return (1);
 }
