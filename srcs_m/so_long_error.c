@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:34:04 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/08 20:45:35 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 11:38:14 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	error_in_map2(char *type)
 	if (ft_strncmp(type, "C_COUNT", 8) == 0)
 	{
 		write(STDERR_FILENO, "Error\n", 6);
-		write(STDERR_FILENO, "Invalid map : Invalid collectable count.\n", 41);
+		write(STDERR_FILENO, "Invalid map : Invalid collect count.\n", 37);
 		exit(EXIT_FAILURE);
 	}
 	if (ft_strncmp(type, "NO_E_PATH", 10) == 0)
@@ -79,8 +79,7 @@ void	error_in_map3(char *type)
 	if (ft_strncmp(type, "NO_C_PATH", 10) == 0)
 	{
 		write(STDERR_FILENO, "Error\n", 6);
-		write(STDERR_FILENO, "Invalid map : There is no collectable path.\n",
-			43);
+		write(STDERR_FILENO, "Invalid map : There is no collect path.\n", 39);
 		exit(EXIT_FAILURE);
 	}
 }

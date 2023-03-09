@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:27:33 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/07 21:25:04 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 11:40:02 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	parse_map(t_info *info)
 	get_map_size(info);
 	make_map(info);
 	check_is_valid_map(info);
-	check_can_collectable(info);
+	check_can_collect(info);
 	check_can_escape(info);
 }
 
@@ -80,13 +80,13 @@ void	check_is_valid_map(t_info *info)
 	{	
 		if (info->map[i] != FREE_SPACE && info->map[i] != WALL
 			&& info->map[i] != PLAYER && info->map[i] != ESCAPE
-			&& info->map[i] != COLLECTABLE && info->map[i] != '\n')
+			&& info->map[i] != COLLECT && info->map[i] != '\n')
 			error_in_map1("COMPONENT");
 		if (info->map[i] == PLAYER)
 			info->p_count++;
 		else if (info->map[i] == ESCAPE)
 			info->e_count++;
-		else if (info->map[i] == COLLECTABLE)
+		else if (info->map[i] == COLLECT)
 			info->c_count++;
 		check_is_surrounding_walls(info, i);
 		i++;

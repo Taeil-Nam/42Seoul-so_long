@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:58:10 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/07 21:24:05 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 11:39:37 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	find_e_path_up(t_info *info, int pos, bool *found_e, bool *visited)
 		return ;
 	}
 	else if (info->map[pos - info->map_col] == FREE_SPACE
-		|| info->map[pos - info->map_col] == COLLECTABLE)
+		|| info->map[pos - info->map_col] == COLLECT)
 		find_e_path(info, pos - info->map_col, found_e, visited);
 }
 
@@ -45,7 +45,7 @@ void	find_e_path_right(t_info *info, int pos, bool *found_e, bool *visited)
 		return ;
 	}
 	else if (info->map[pos + 1] == FREE_SPACE
-		|| info->map[pos + 1] == COLLECTABLE)
+		|| info->map[pos + 1] == COLLECT)
 		find_e_path(info, pos + 1, found_e, visited);
 }
 
@@ -57,7 +57,7 @@ void	find_e_path_down(t_info *info, int pos, bool *found_e, bool *visited)
 		return ;
 	}
 	else if (info->map[pos + info->map_col] == FREE_SPACE
-		|| info->map[pos + info->map_col] == COLLECTABLE)
+		|| info->map[pos + info->map_col] == COLLECT)
 		find_e_path(info, pos + info->map_col, found_e, visited);
 }
 
@@ -69,6 +69,6 @@ void	find_e_path_left(t_info *info, int pos, bool *found_e, bool *visited)
 		return ;
 	}
 	else if (info->map[pos - 1] == FREE_SPACE
-		|| info->map[pos - 1] == COLLECTABLE)
+		|| info->map[pos - 1] == COLLECT)
 		find_e_path(info, pos - 1, found_e, visited);
 }

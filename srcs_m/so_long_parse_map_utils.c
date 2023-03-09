@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 23:08:07 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/07 21:30:19 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 11:39:46 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_is_valid_count(t_info *info)
 		error_in_map2("C_COUNT");
 }
 
-void	check_can_collectable(t_info *info)
+void	check_can_collect(t_info *info)
 {
 	int		player_pos;
 	int		c_count;

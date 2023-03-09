@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_find_collectable_path.c                    :+:      :+:    :+:   */
+/*   so_long_find_collect_path.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 20:57:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/07 21:25:44 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 11:40:43 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	find_c_path(t_info *info, int pos, int *c_count, bool *visited)
 
 void	find_c_path_up(t_info *info, int pos, int *c_count, bool *visited)
 {
-	if (info->map[pos - info->map_col] == COLLECTABLE)
+	if (info->map[pos - info->map_col] == COLLECT)
 	{
 		*c_count += 1;
 		find_c_path(info, pos - info->map_col, c_count, visited);
@@ -38,7 +38,7 @@ void	find_c_path_up(t_info *info, int pos, int *c_count, bool *visited)
 
 void	find_c_path_right(t_info *info, int pos, int *c_count, bool *visited)
 {
-	if (info->map[pos + 1] == COLLECTABLE)
+	if (info->map[pos + 1] == COLLECT)
 	{
 		*c_count += 1;
 		find_c_path(info, pos - info->map_col, c_count, visited);
@@ -49,24 +49,24 @@ void	find_c_path_right(t_info *info, int pos, int *c_count, bool *visited)
 
 void	find_c_path_down(t_info *info, int pos, int *c_count, bool *visited)
 {
-	if (info->map[pos + info->map_col] == COLLECTABLE)
+	if (info->map[pos + info->map_col] == COLLECT)
 	{
 		*c_count += 1;
 		find_c_path(info, pos - info->map_col, c_count, visited);
 	}
 	else if (info->map[pos + info->map_col] == FREE_SPACE
-		|| info->map[pos + info->map_col] == COLLECTABLE)
+		|| info->map[pos + info->map_col] == COLLECT)
 		find_c_path(info, pos + info->map_col, c_count, visited);
 }
 
 void	find_c_path_left(t_info *info, int pos, int *c_count, bool *visited)
 {
-	if (info->map[pos - 1] == COLLECTABLE)
+	if (info->map[pos - 1] == COLLECT)
 	{
 		*c_count += 1;
 		find_c_path(info, pos - info->map_col, c_count, visited);
 	}
 	else if (info->map[pos - 1] == FREE_SPACE
-		|| info->map[pos - 1] == COLLECTABLE)
+		|| info->map[pos - 1] == COLLECT)
 		find_c_path(info, pos - 1, c_count, visited);
 }

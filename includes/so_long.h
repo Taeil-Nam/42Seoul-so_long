@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/08 21:53:03 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 11:43:01 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ enum e_map
 	WALL = '1',
 	PLAYER = 'P',
 	ESCAPE = 'E',
-	COLLECTABLE = 'C',
+	COLLECT = 'C',
 };
 
 enum e_keys
@@ -68,6 +68,9 @@ typedef struct s_game
 	int		pixel;
 	void	*wall;
 	void	*free_space;
+	void	*player;
+	void	*escape;
+	void	*collect;
 	int		current_c_count;
 }			t_game;
 
@@ -87,7 +90,7 @@ void	check_is_valid_map(t_info *info);
 void	check_is_surrounding_walls(t_info *info, int i);
 void	check_is_valid_count(t_info *info);
 void	check_can_escape(t_info *info);
-void	check_can_collectable(t_info *info);
+void	check_can_collect(t_info *info);
 
 /* find escape path*/
 void	find_e_path(t_info *info, int pos, bool *found_e, bool *visited);
@@ -96,7 +99,7 @@ void	find_e_path_right(t_info *info, int pos, bool *found_e, bool *visited);
 void	find_e_path_down(t_info *info, int pos, bool *found_e, bool *visited);
 void	find_e_path_left(t_info *info, int pos, bool *found_e, bool *visited);
 
-/* find collectable path*/
+/* find collect path*/
 void	find_c_path(t_info *info, int pos, int *c_count, bool *visited);
 void	find_c_path_up(t_info *info, int pos, int *c_count, bool *visited);
 void	find_c_path_right(t_info *info, int pos, int *c_count, bool *visited);
@@ -105,11 +108,15 @@ void	find_c_path_left(t_info *info, int pos, int *c_count, bool *visited);
 
 /* game logic */
 void	game_logic(t_info *info);
-void	init_game(t_game *game);
+void	init_game1(t_game *game);
+void	init_game2(t_game *game);
 
 /* render map */
 void	render_map(t_info *info, t_game *game);
 void	render_tile(t_info *info, t_game *game);
+void	render_player(t_info *info, t_game *game);
+void	render_escape(t_info *info, t_game *game);
+void	render_collect(t_info *info, t_game *game);
 
 /* check key input */
 int		check_key_input(int key, t_game *game);
