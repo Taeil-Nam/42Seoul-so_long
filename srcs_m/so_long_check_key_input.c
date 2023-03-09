@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 21:13:26 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 18:23:29 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 20:08:46 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,46 +34,110 @@ void	key_w(t_game *game)
 {
 	if (game->map[game->player_pos - game->map_col] == WALL)
 		return ;
-	mlx_put_image_to_window(game->mlx, game->mlx_win,
-		game->free_space, game->player_col * 64, game->player_row * 64);
-	game->player_pos -= game->map_col;
-	game->player_row--;
-	mlx_put_image_to_window(game->mlx, game->mlx_win,
-		game->player, game->player_col * 64, game->player_row * 64);
+	else if (game->map[game->player_pos - game->map_col] == COLLECT)
+	{
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		game->player_pos -= game->map_col;
+		game->player_row--;
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->player, game->player_col * 64, game->player_row * 64);
+		game->collected_count++;
+		game->map[game->player_pos - game->map_col] = FREE_SPACE;
+	}
+	else
+	{
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		game->player_pos -= game->map_col;
+		game->player_row--;
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->player, game->player_col * 64, game->player_row * 64);	
+	}
 }
 
 void	key_a(t_game *game)
 {
 	if (game->map[game->player_pos - 1] == WALL)
 		return ;
-	mlx_put_image_to_window(game->mlx, game->mlx_win,
-		game->free_space, game->player_col * 64, game->player_row * 64);
-	game->player_pos -= 1;
-	game->player_col--;
-	mlx_put_image_to_window(game->mlx, game->mlx_win,
-		game->player, game->player_col * 64, game->player_row * 64);
+	else if (game->map[game->player_pos - 1] == COLLECT)
+	{
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		game->player_pos -= 1;
+		game->player_col--;
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->player, game->player_col * 64, game->player_row * 64);
+		game->collected_count++;
+		game->map[game->player_pos - game->map_col] = FREE_SPACE;
+	}
+	else
+	{
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		game->player_pos -= 1;
+		game->player_col--;
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->player, game->player_col * 64, game->player_row * 64);
+	}
 }
 
 void	key_s(t_game *game)
 {
 	if (game->map[game->player_pos + game->map_col] == WALL)
 		return ;
-	mlx_put_image_to_window(game->mlx, game->mlx_win,
-		game->free_space, game->player_col * 64, game->player_row * 64);
-	game->player_pos += game->map_col;
-	game->player_row++;
-	mlx_put_image_to_window(game->mlx, game->mlx_win,
-		game->player, game->player_col * 64, game->player_row * 64);
+	else if (game->map[game->player_pos + game->map_col] == COLLECT)
+	{
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		game->player_pos += game->map_col;
+		game->player_row++;
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->player, game->player_col * 64, game->player_row * 64);
+		game->collected_count++;
+		game->map[game->player_pos - game->map_col] = FREE_SPACE;
+	}
+	else
+	{
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		game->player_pos += game->map_col;
+		game->player_row++;
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->player, game->player_col * 64, game->player_row * 64);
+	}
 }
 
 void	key_d(t_game *game)
 {
 	if (game->map[game->player_pos + 1] == WALL)
 		return ;
-	mlx_put_image_to_window(game->mlx, game->mlx_win,
-		game->free_space, game->player_col * 64, game->player_row * 64);
-	game->player_pos += 1;
-	game->player_col++;
-	mlx_put_image_to_window(game->mlx, game->mlx_win,
-		game->player, game->player_col * 64, game->player_row * 64);
+	else if (game->map[game->player_pos + 1] == COLLECT)
+	{
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		game->player_pos += 1;
+		game->player_col++;
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->player, game->player_col * 64, game->player_row * 64);
+		game->collected_count++;
+		game->map[game->player_pos - game->map_col] = FREE_SPACE;
+	}
+	else
+	{
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->free_space, game->player_col * 64, game->player_row * 64);
+		game->player_pos += 1;
+		game->player_col++;
+		mlx_put_image_to_window(game->mlx, game->mlx_win,
+			game->player, game->player_col * 64, game->player_row * 64);
+	}
 }
