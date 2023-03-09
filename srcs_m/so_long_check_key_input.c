@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 21:13:26 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 20:08:46 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 20:11:04 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	key_w(t_game *game)
 		game->player_pos -= game->map_col;
 		game->player_row--;
 		mlx_put_image_to_window(game->mlx, game->mlx_win,
-			game->player, game->player_col * 64, game->player_row * 64);	
+			game->player, game->player_col * 64, game->player_row * 64);
 	}
 }
 
