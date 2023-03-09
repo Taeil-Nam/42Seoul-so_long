@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 21:13:04 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 20:57:08 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 22:14:48 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	render_tile(t_info *info, t_game *game)
 				game->free_space, col * 64, row * 64);
 		i++;
 		col++;
-		if (col % 19 == 0)
+		if (col % info->map_col == 0)
 		{
 			col = 0;
 			row++;
@@ -68,7 +68,7 @@ void	render_player(t_info *info, t_game *game)
 		}
 		i++;
 		col++;
-		if (col % 19 == 0)
+		if (col % info->map_col == 0)
 		{
 			col = 0;
 			row++;
@@ -94,7 +94,7 @@ void	render_escape(t_info *info, t_game *game)
 		}
 		i++;
 		col++;
-		if (col % 19 == 0)
+		if (col % info->map_col == 0)
 		{
 			col = 0;
 			row++;
@@ -118,7 +118,7 @@ void	render_collect(t_info *info, t_game *game)
 				game->collect, col * 64, row * 64);
 		i++;
 		col++;
-		if (col % 19 == 0)
+		if (col % info->map_col == 0)
 		{
 			col = 0;
 			row++;

@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:59:13 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 21:19:57 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 22:15:17 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ void	init_game1(t_game *game, t_info *info)
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
 		error_mlx("MLX_INIT");
-	game->mlx_win = mlx_new_window(game->mlx, 1152, 896, "so_long");
+	game->pixel = 64;
+	game->mlx_win = mlx_new_window(game->mlx, (info->map_col - 1) * game->pixel,
+			info->map_row * game->pixel, "so_long");
 	if (game->mlx_win == NULL)
 		error_mlx("MLX_WIN");
-	game->pixel = 64;
 	game->collect_goal_count = info->c_count;
 	game->collected_count = 0;
 	game->move_count = 0;
