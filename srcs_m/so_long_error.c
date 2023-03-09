@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:34:04 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 11:38:14 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 22:22:00 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,12 @@ void	error_mlx(char *type)
 	{
 		write(STDERR_FILENO, "Error\n", 6);
 		write(STDERR_FILENO, "mlx_init() failed.\n", 19);
+		exit(EXIT_FAILURE);
+	}
+	if (ft_strncmp(type, "WINDOW_SIZE", 11) == 0)
+	{
+		write(STDERR_FILENO, "Error\n", 6);
+		write(STDERR_FILENO, "Map is too bigger than display.\n", 33);
 		exit(EXIT_FAILURE);
 	}
 	if (ft_strncmp(type, "MLX_WIN", 8) == 0)

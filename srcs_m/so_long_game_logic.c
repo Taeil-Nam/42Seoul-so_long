@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:59:13 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 22:15:17 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 22:27:05 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ void	init_game1(t_game *game, t_info *info)
 	if (game->mlx == NULL)
 		error_mlx("MLX_INIT");
 	game->pixel = 64;
+	if ((info->map_col - 1) * game->pixel >= 2624
+		|| info->map_row * game->pixel >= 1504)
+		error_mlx("WINDOW_SIZE");
 	game->mlx_win = mlx_new_window(game->mlx, (info->map_col - 1) * game->pixel,
 			info->map_row * game->pixel, "so_long");
 	if (game->mlx_win == NULL)
