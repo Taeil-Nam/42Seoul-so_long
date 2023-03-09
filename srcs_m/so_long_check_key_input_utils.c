@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 20:30:27 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 21:18:23 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 21:44:29 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	w_collect(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->mlx_win,
 		game->player, game->player_col * 64, game->player_row * 64);
 	game->collected_count++;
-	game->map[game->player_pos - game->map_col] = FREE_SPACE;
+	game->map[game->player_pos] = FREE_SPACE;
 	ft_printf("You've collected %d objects, %d left.\n",
 		game->collected_count,
 		game->collect_goal_count - game->collected_count);
@@ -40,7 +40,7 @@ void	a_collect(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->mlx_win,
 		game->player, game->player_col * 64, game->player_row * 64);
 	game->collected_count++;
-	game->map[game->player_pos - game->map_col] = FREE_SPACE;
+	game->map[game->player_pos] = FREE_SPACE;
 	ft_printf("You've collected %d objects, %d left.\n",
 		game->collected_count,
 		game->collect_goal_count - game->collected_count);
@@ -57,7 +57,7 @@ void	s_collect(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->mlx_win,
 		game->player, game->player_col * 64, game->player_row * 64);
 	game->collected_count++;
-	game->map[game->player_pos - game->map_col] = FREE_SPACE;
+	game->map[game->player_pos] = FREE_SPACE;
 	ft_printf("You've collected %d objects, %d left.\n",
 		game->collected_count,
 		game->collect_goal_count - game->collected_count);
@@ -74,7 +74,7 @@ void	d_collect(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->mlx_win,
 		game->player, game->player_col * 64, game->player_row * 64);
 	game->collected_count++;
-	game->map[game->player_pos - game->map_col] = FREE_SPACE;
+	game->map[game->player_pos] = FREE_SPACE;
 	ft_printf("You've collected %d objects, %d left.\n",
 		game->collected_count,
 		game->collect_goal_count - game->collected_count);
