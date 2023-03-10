@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 20:57:35 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 11:40:43 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/10 21:55:43 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	find_c_path(t_info *info, int pos, int *c_count, bool *visited)
 {
 	visited[pos] = TRUE;
-	if (visited[pos - info->map_col] == FALSE && pos - info->map_col >= 0)
+	if (visited[pos - info->map_col] == FALSE)
 		find_c_path_up(info, pos, c_count, visited);
 	if (visited[pos + 1] == FALSE)
 		find_c_path_right(info, pos, c_count, visited);

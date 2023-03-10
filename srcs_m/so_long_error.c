@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 20:34:04 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 22:22:00 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/10 22:15:11 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	error_in_map3(char *type)
 	if (ft_strncmp(type, "NO_C_PATH", 10) == 0)
 	{
 		write(STDERR_FILENO, "Error\n", 6);
-		write(STDERR_FILENO, "Invalid map : There is no collect path.\n", 39);
+		write(STDERR_FILENO, "Invalid map : There is no collect path.\n", 40);
 		exit(EXIT_FAILURE);
 	}
 }
