@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:53:34 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/10 19:59:28 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 21:23:01 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		return (EXIT_FAILURE);
 	init_info(&info, argc, argv);
+	check_map_file(&info);
 	parse_map(&info);
 	game_logic(&info);
 	return (0);

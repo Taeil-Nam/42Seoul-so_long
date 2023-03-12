@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 23:08:07 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/10 21:36:39 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 11:39:46 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	check_is_surrounding_walls(t_info *info, int i)
 {
-	info->map_size = info->map_row * info->map_col;
 	if (i < info->map_col - 1 && info->map[i] != WALL)
 		error_in_map1("WALL");
 	else if (info->map[i] != 0 && (info->map[i - 1] == '\n'

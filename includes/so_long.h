@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:54:09 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/10 20:09:22 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 21:04:54 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ typedef struct s_info
 	int		map_fd;
 	char	*map;
 	int		map_size;
-	int		map_col;
 	int		map_row;
+	int		map_col;
 	int		p_count;
 	int		e_count;
 	int		c_count;

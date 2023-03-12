@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:27:33 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/10 21:40:24 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/09 11:40:02 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ void	get_map_size(t_info *info)
 			line_size_old = line_size;
 		if (line_size != line_size_old)
 			error_in_map1("RECTANGLE");
-		info->map_col = line_size;
 		info->map_row++;
+		info->map_col = line_size;
 		free(line);
 	}
-	if (info->map_col < 2 || info->map_row < 2)
-		error_in_map1("RECTANGLE");
 }
 
 void	make_map(t_info *info)
@@ -51,6 +49,7 @@ void	make_map(t_info *info)
 	char	*line;
 	char	*line_old;
 
+	info->map_size = info->map_row * info->map_col;
 	info->map = (char *)malloc(1);
 	if (info->map == NULL)
 		exit(EXIT_FAILURE);
@@ -74,7 +73,7 @@ void	make_map(t_info *info)
 
 void	check_is_valid_map(t_info *info)
 {
-	int	i;
+	int			i;
 
 	i = 0;
 	while (info->map[i] != '\0')
