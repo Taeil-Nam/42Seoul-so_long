@@ -6,7 +6,7 @@
 #    By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 16:17:47 by tnam              #+#    #+#              #
-#    Updated: 2023/03/11 20:32:21 by tnam             ###   ########.fr        #
+#    Updated: 2023/03/12 11:31:04 by tnam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,19 +40,7 @@ SRCS_M			=	srcs_m/so_long_main.c					\
 					gnl/get_next_line.c						\
 					gnl/get_next_line_utils.c				\
 									
-SRCS_B			=	srcs_b/so_long_main_bonus.c						\
-					srcs_b/so_long_init_bonus.c						\
-					srcs_b/so_long_parse_map_bonus.c				\
-					srcs_b/so_long_parse_map_utils_bonus.c			\
-					srcs_b/so_long_find_escape_path_bonus.c			\
-					srcs_b/so_long_find_collect_path_bonus.c		\
-					srcs_b/so_long_game_logic_bonus.c				\
-					srcs_b/so_long_render_map_bonus.c				\
-					srcs_b/so_long_check_key_input_bonus.c			\
-					srcs_b/so_long_check_key_input_utils_bonus.c	\
-					srcs_b/so_long_error_bonus.c					\
-					gnl/get_next_line.c								\
-					gnl/get_next_line_utils.c						\
+SRCS_B			=	
 					
 OBJS_M			=	$(SRCS_M:.c=.o)
 OBJS_B			=	$(SRCS_B:.c=.o)
