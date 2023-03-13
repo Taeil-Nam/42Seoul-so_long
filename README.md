@@ -19,3 +19,6 @@
 ## 사용 방법
 - make = so_long 게임 프로그램 생성.
 - ./so_long maps/[맵 파일] 명령어로 게임 실행.
+
+## 게임 플레이 영상
+https://www.youtube.com/watch?v=-zyLgyTjoZ8
