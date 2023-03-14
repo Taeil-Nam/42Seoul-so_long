@@ -6,7 +6,7 @@
 /*   By: tnam <tnam@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:58:10 by tnam              #+#    #+#             */
-/*   Updated: 2023/03/09 11:39:37 by tnam             ###   ########.fr       */
+/*   Updated: 2023/03/14 15:42:09 by tnam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	find_e_path(t_info *info, int pos, bool *found_e, bool *visited)
 {
 	visited[pos] = TRUE;
-	if (visited[pos - info->map_col] == FALSE && pos - info->map_col >= 0)
+	if (visited[pos - info->map_col] == FALSE)
 		find_e_path_up(info, pos, found_e, visited);
 	if (visited[pos + 1] == FALSE)
 		find_e_path_right(info, pos, found_e, visited);
